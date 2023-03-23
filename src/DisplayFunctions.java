@@ -1,6 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+/*
+* @author Sammantha Kelosi
+* */
 
 public class DisplayFunctions extends EmployeeList {
 

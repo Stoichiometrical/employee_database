@@ -4,3 +4,4 @@
 78,James,Pet,ALC Campus,35382622,f@gmail.com,Jan 2024,MSC
 20,Malize,Bogoza,ALC Campus,57636373,g@boga,Jan 2016,MSC
 22,Jona,Bogoza,ALC Campus,53537873,g@boga,Jan 2016,BSC
+2626,John,Poss,ALC Campus,677766656,g@gmail.com,Jan 2025,MSC

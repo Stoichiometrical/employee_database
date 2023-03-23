@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.Scanner;
 
+/*
+ * @author Sammantha Kelosi
+ * */
+
 public class EmployeeList{
     private static EmployeeNode head;
 
@@ -243,12 +247,6 @@ public class EmployeeList{
 
 
 
-
-
-
-
-
-
     public static void searchTel(String fileName,String tel) throws IOException {
         File file = new File(fileName);
         Scanner scanner = new Scanner(file);
@@ -349,64 +347,7 @@ public class EmployeeList{
 
     }
 
-    public static void saveToFiles(String filename){
-        try{
-            FileWriter file = new FileWriter(filename);
-            EmployeeNode current = head;
-            int count = 0;
-            while (current != null) {
-                count++;
-                file.write(current.getEmployee().toStringForFile() + "\n" );
-                current = current.getNext();
-                if(count==10){
-                    break;
-                }
-            }
-            file.close();
-            System.out.println("Employee list saved to file: " + filename);
-        } catch (IOException e) {System.out.println("Error saving employee list to file: " + e.getMessage());}
-    }
 
-    public static void saveToFile(EmployeeList employeeList, String fileName) {
-        EmployeeNode currentNode = head;
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,false))) {
-
-            do{
-                Employee currentEmployee =(Employee) currentNode.getEmployee();
-                String employeeString = currentEmployee.toStringForFile();
-                writer.write(employeeString);
-                writer.newLine(); // use newLine() method to add a newline character after each employee string
-                currentNode = currentNode.getNext();
-            }while (currentNode != null);
-            System.out.println("Successfully saved employee data to file " + fileName);
-        } catch (IOException e) {
-            System.out.println("An error occurred while trying to save employee data to file " + fileName);
-            e.printStackTrace();
-        }
-    }
-
-
-    public static EmployeeList loadFromFile(String fileName) throws IOException {
-        EmployeeList employeeList = new EmployeeList();
-        File file = new File(fileName);
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] employeeData = line.split(",");
-            int employeeId = Integer.parseInt(employeeData[0]);
-            String firstName = employeeData[1];
-            String lastName = employeeData[2];
-            String address = employeeData[3];
-            String telephoneNumber = employeeData[4];
-            String email = employeeData[5];
-            String dateJoined = employeeData[6];
-            String highestQualification = employeeData[7];
-            Employee employee = new Employee(employeeId, firstName, lastName, address, telephoneNumber, email, dateJoined, highestQualification);
-            employeeList.addEmployee(employee);
-        }
-        scanner.close();
-        return employeeList;
-    }
 
     public static void loadFromFiles(String fileName) throws IOException {
 
@@ -437,31 +378,31 @@ public class EmployeeList{
     }
 
 
-    public static EmployeeList loadFromFiles1(String fileName) throws IOException {
-        File file = new File(fileName);
-        Scanner scanner = new Scanner(file);
-        EmployeeList employeeList = new EmployeeList();
-
-        do{
-            String line = scanner.nextLine();
-            String[] employeeData = line.split(",");
-            int employeeId = Integer.parseInt(employeeData[0]);
-            String firstName = employeeData[1];
-            String lastName = employeeData[2];
-            String address = employeeData[3];
-            String telephoneNumber = employeeData[4];
-            String email = employeeData[5];
-            String dateJoined = employeeData[6];
-            String highestQualification = employeeData[7];
-
-            Employee employee = new Employee(employeeId, firstName, lastName, address, telephoneNumber, email, dateJoined, highestQualification);
-            employeeList.addEmployee(employee);
-        }while(scanner.hasNextLine());
-
-        scanner.close();
-
-        return employeeList;
-    }
+//    public static EmployeeList loadFromFiles1(String fileName) throws IOException {
+//        File file = new File(fileName);
+//        Scanner scanner = new Scanner(file);
+//        EmployeeList employeeList = new EmployeeList();
+//
+//        do{
+//            String line = scanner.nextLine();
+//            String[] employeeData = line.split(",");
+//            int employeeId = Integer.parseInt(employeeData[0]);
+//            String firstName = employeeData[1];
+//            String lastName = employeeData[2];
+//            String address = employeeData[3];
+//            String telephoneNumber = employeeData[4];
+//            String email = employeeData[5];
+//            String dateJoined = employeeData[6];
+//            String highestQualification = employeeData[7];
+//
+//            Employee employee = new Employee(employeeId, firstName, lastName, address, telephoneNumber, email, dateJoined, highestQualification);
+//            employeeList.addEmployee(employee);
+//        }while(scanner.hasNextLine());
+//
+//        scanner.close();
+//
+//        return employeeList;
+//    }
 
 
 
@@ -481,23 +422,7 @@ public class EmployeeList{
         }
     }
 
-    public static void removeEmp(int id) throws IOException {
-        EmployeeList new_list = loadFromFile("employees.txt");
-        new_list.removeEmployee(id);
-        saveToFiles("employees.txt");
-//        saveToFile(new_list,"employees.txt");
-        System.out.println("Employee Successfully Removed");
 
-    }
-
-    public static void removeEmps(int id) throws IOException {
-       loadFromFiles("employees.txt");
-//        new_list.removeEmployee(id);
-//        saveToFiles("employees.txt");
-//        saveToFile(new_list,"employees.txt");
-        System.out.println("Employee Successfully Removed");
-
-    }
 
     public EmployeeNode getFirstNode() {
         return head;
@@ -505,31 +430,9 @@ public class EmployeeList{
 
 
 
-    public static void displayEmployeeList(EmployeeList employeeList) {
-        if (head==null) {
-            System.out.println("Employee list is empty");
-            return;
-        }
-        EmployeeNode currentNode = employeeList.getFirstNode();
-        do {
-            Employee employee = currentNode.getEmployee();
-            System.out.println(employee.toString());
-            currentNode = currentNode.getNext();
-        } while (currentNode != employeeList.getFirstNode());
-    }
 
-    public static void traverseEmployeeList(EmployeeList employeeList) {
-        if (head==null) {
-            System.out.println("Employee list is empty.");
-            return;
-        }
 
-        EmployeeNode currentNode = employeeList.getFirstNode();
-        do {
-            System.out.println(currentNode.getEmployee().toString());
-            currentNode = currentNode.getNext();
-        } while (currentNode != employeeList.getFirstNode());
-    }
+
 
     public void traverseList() {
         if (head == null) {

@@ -1,6 +1,7 @@
 /**
 
  A node class for a linked list of employees.
+ @author Sammantha Kelosi
  */
 public class EmployeeNode {
     private Employee employee; // the employee object stored in this node

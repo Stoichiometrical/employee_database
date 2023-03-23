@@ -1,15 +1,29 @@
 import java.io.IOException;
 import java.util.Scanner;
+/**
+
+ The Display class is responsible for displaying the options menu for managing employee records. It implements the IEmpView interface and extends the DisplayFunctions class.
+ @author  Samantha Kelosi.
+ */
 
 public class Display extends DisplayFunctions implements IEmpView  {
 
+    /**
+     * The main method initializes and starts the program by displaying the main menu.
+     * @param args the command line arguments.
+     * @throws IOException if an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException {
         System.out.println("EMPLOYEE LISTS");
         run();
 
     }
 
-
+    /**
+     * The run method displays the main menu options and accepts user input to execute the selected option.
+     * It is a recursive method that keeps displaying the menu after every execution.
+     * @throws IOException if an I/O error occurs.
+     */
     public static void run() throws IOException {
 
         System.out.println("1.Display Employees");
