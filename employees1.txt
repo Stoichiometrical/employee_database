@@ -1,0 +1,6 @@
+12,Dav,Pet,ALC Campus,63636363,fd@gmail.com,Jan 2015,MSC
+13,Mary,Loats,ALC Campus,7373737373,fa@gmail,Jan 2019,BSC
+14,Honda,Bogoza,ALC Campus,53536373,g@boga,Jan 2016,HSC
+78,James,Pet,ALC Campus,35382622,f@gmail.com,Jan 2024,MSC
+20,Malize,Bogoza,ALC Campus,57636373,g@boga,Jan 2016,MSC
+22,Jona,Bogoza,ALC Campus,53537873,g@boga,Jan 2016,BSC
